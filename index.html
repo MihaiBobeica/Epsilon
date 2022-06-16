@@ -13,6 +13,28 @@
     myArray = new Array(150);
     for(i=0;i<150;i++)
         myArray[i]=0;
+    
+    constructed = 0;
+    function randomSquaresConstructor()
+    {
+        if(!constructed)
+        {
+            var randomSquare1 = Math.floor(Math.random() * 145);
+            myArray[randomSquare1]=1;
+            document.getElementById(randomSquare1+"demo").style.background= "black";
+
+            var randomSquare2 = Math.floor(Math.random() * 145);
+            myArray[randomSquare2]=1;
+            document.getElementById(randomSquare2+"demo").style.background= "black"; 
+            constructed=1;
+        }
+         
+    }
+
+    setInterval(randomSquaresConstructor,30); 
+    
+    
+    
     function myFunction(nume){
         var altaVariabila = parseInt(nume);
 
