@@ -21,6 +21,12 @@
   font-size: 300%;
   text-align: center;
 }
+.greenPlayer{
+  color: green;
+}
+.purplePlayer{
+  color:purple;
+}
 
 .gameTable{
   float:center;
