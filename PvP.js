@@ -120,13 +120,13 @@ myArray = new Array(150);
     {
         if(clickNumber%2==1)
         {
-            document.getElementById("purpleTurn").style.color= "purple";
-            document.getElementById("greenTurn").style.color="white"
+            document.getElementById("purpleTurn").style.display = "block";
+            document.getElementById("greenTurn").style.display = "none";
         }
         else
         {
-            document.getElementById("purpleTurn").style.color = "white";
-            document.getElementById("greenTurn").style.color="green"
+            document.getElementById("purpleTurn").style.display = "none";
+            document.getElementById("greenTurn").style.display = "block";
         }
     }
     setInterval(displayTurn,30);
