@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="syles.css">
+</head>
+<script src="PvP.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<html>
+    <body >
+        <section>
+            <article class="playerTurnMeniu">
+                <p class="purplePlayer" id="purpleTurn" style="display:none">Purple's turn</p>
+                <p class="greenPlayer" id="greenTurn" style="display:none">Green's turn</p>
+            </article>
+            
+            
+
+            <article class="moveRewind">
+                    <p id = "1move"></p>
+                    <p id = "2move"></p>
+                    <p id = "3move"></p>
+                    <p id = "4move"></p>
+                    <p id = "5move"></p>
+                    <p id = "6move"></p>
+                    <p id = "7move"></p>
+                    <p id = "8move"></p>
+                    <p id = "9move"></p>
+                    <p id = "10move"></p>
+                    <p id = "11move"></p>
+                    <p id = "12move"></p>
+                    <p id = "13move"></p>
+                    <p id = "14move"></p>
+                    <p id = "15move"></p>
+                    <p id = "16move"></p>
+                    <p id = "17move"></p>
+                    <p id = "18move"></p>
+                    <p id = "19move"></p>
+                    <p id = "20move"></p>
+                    <p id = "21move"></p>
+                    <p id = "22move"></p>
+                    <p id = "23move"></p>
+                    <p id = "24move"></p>
+                    <p id = "25move"></p>
+                    <p id = "26move"></p>
+                    <p id = "27move"></p>
+                    <p id = "28move"></p>
+                    <p id = "29move"></p>
+                    <p id = "30move"></p>
+                    <p id = "31move"></p>
+                    <p id = "32move"></p>
+                    <p id = "33move"></p>
+                    <p id = "34move"></p>
+                    <p id = "35move"></p>
+                    <p id = "36move"></p>     
+            </article>
+            
+
+
+            <article class="gameTable">
+                <table >
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <th id="1demo" onclick="placingFunction(id)"></th>
+                        <th id="2demo" onclick="placingFunction(id)"></th>
+                        <th id="3demo" onclick="placingFunction(id)"></th>
+                        <th id="4demo" onclick="placingFunction(id)"></th>
+                        <th id="5demo" onclick="placingFunction(id)"></th>
+                        <th id="6demo" onclick="placingFunction(id)"></th>
+                        <th id="7demo" onclick="placingFunction(id)"></th>
+                        <th id="8demo" onclick="placingFunction(id)"></th>
+                        <th id="9demo" onclick="placingFunction(id)"></th>
+                        <th id="10demo" onclick="placingFunction(id)"></th>
+                        <th id="11demo" onclick="placingFunction(id)"></th>
+                        <th id="12demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <th id="13demo" onclick="placingFunction(id)"></th>
+                        <th id="14demo" onclick="placingFunction(id)"></th>
+                        <th id="15demo" onclick="placingFunction(id)"></th>
+                        <th id="16demo" onclick="placingFunction(id)"></th>
+                        <th id="17demo" onclick="placingFunction(id)"></th>
+                        <th id="18demo" onclick="placingFunction(id)"></th>
+                        <th id="19demo" onclick="placingFunction(id)"></th>
+                        <th id="20demo" onclick="placingFunction(id)"></th>
+                        <th id="21demo" onclick="placingFunction(id)"></th>
+                        <th id="22demo" onclick="placingFunction(id)"></th>
+                        <th id="23demo" onclick="placingFunction(id)"></th>
+                        <th id="24demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <th id="25demo" onclick="placingFunction(id)"></th>
+                        <th id="26demo" onclick="placingFunction(id)"></th>
+                        <th id="27demo" onclick="placingFunction(id)"></th>
+                        <th id="28demo" onclick="placingFunction(id)"></th>
+                        <th id="29demo" onclick="placingFunction(id)"></th>
+                        <th id="30demo" onclick="placingFunction(id)"></th>
+                        <th id="31demo" onclick="placingFunction(id)"></th>
+                        <th id="32demo" onclick="placingFunction(id)"></th>
+                        <th id="33demo" onclick="placingFunction(id)"></th>
+                        <th id="34demo" onclick="placingFunction(id)"></th>
+                        <th id="35demo" onclick="placingFunction(id)"></th>
+                        <th id="36demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <th id="37demo" onclick="placingFunction(id)"></th>
+                        <th id="38demo" onclick="placingFunction(id)"></th>
+                        <th id="39demo" onclick="placingFunction(id)"></th>
+                        <th id="40demo" onclick="placingFunction(id)"></th>
+                        <th id="41demo" onclick="placingFunction(id)"></th>
+                        <th id="42demo" onclick="placingFunction(id)"></th>
+                        <th id="43demo" onclick="placingFunction(id)"></th>
+                        <th id="44demo" onclick="placingFunction(id)"></th>
+                        <th id="45demo" onclick="placingFunction(id)"></th>
+                        <th id="46demo" onclick="placingFunction(id)"></th>
+                        <th id="47demo" onclick="placingFunction(id)"></th>
+                        <th id="48demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <th id="49demo" onclick="placingFunction(id)"></th>
+                        <th id="50demo" onclick="placingFunction(id)"></th>
+                        <th id="51demo" onclick="placingFunction(id)"></th>
+                        <th id="52demo" onclick="placingFunction(id)"></th>
+                        <th id="53demo" onclick="placingFunction(id)"></th>
+                        <th id="54demo" onclick="placingFunction(id)"></th>
+                        <th id="55demo" onclick="placingFunction(id)"></th>
+                        <th id="56demo" onclick="placingFunction(id)"></th>
+                        <th id="57demo" onclick="placingFunction(id)"></th>
+                        <th id="58demo" onclick="placingFunction(id)"></th>
+                        <th id="59demo" onclick="placingFunction(id)"></th>
+                        <th id="60demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <th id="61demo" onclick="placingFunction(id)"></th>
+                        <th id="62demo" onclick="placingFunction(id)"></th>
+                        <th id="63demo" onclick="placingFunction(id)"></th>
+                        <th id="64demo" onclick="placingFunction(id)"></th>
+                        <th id="65demo" onclick="placingFunction(id)"></th>
+                        <th id="66demo" onclick="placingFunction(id)"></th>
+                        <th id="67demo" onclick="placingFunction(id)"></th>
+                        <th id="68demo" onclick="placingFunction(id)"></th>
+                        <th id="69demo" onclick="placingFunction(id)"></th>
+                        <th id="70demo" onclick="placingFunction(id)"></th>
+                        <th id="71demo" onclick="placingFunction(id)"></th>
+                        <th id="72demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <th id="73demo" onclick="placingFunction(id)"></th>
+                        <th id="74demo" onclick="placingFunction(id)"></th>
+                        <th id="75demo" onclick="placingFunction(id)"></th>
+                        <th id="76demo" onclick="placingFunction(id)"></th>
+                        <th id="77demo" onclick="placingFunction(id)"></th>
+                        <th id="78demo" onclick="placingFunction(id)"></th>
+                        <th id="79demo" onclick="placingFunction(id)"></th>
+                        <th id="80demo" onclick="placingFunction(id)"></th>
+                        <th id="81demo" onclick="placingFunction(id)"></th>
+                        <th id="82demo" onclick="placingFunction(id)"></th>
+                        <th id="83demo" onclick="placingFunction(id)"></th>
+                        <th id="84demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <th id="85demo" onclick="placingFunction(id)"></th>
+                        <th id="86demo" onclick="placingFunction(id)"></th>
+                        <th id="87demo" onclick="placingFunction(id)"></th>
+                        <th id="88demo" onclick="placingFunction(id)"></th>
+                        <th id="89demo" onclick="placingFunction(id)"></th>
+                        <th id="90demo" onclick="placingFunction(id)"></th>
+                        <th id="91demo" onclick="placingFunction(id)"></th>
+                        <th id="92demo" onclick="placingFunction(id)"></th>
+                        <th id="93demo" onclick="placingFunction(id)"></th>
+                        <th id="94demo" onclick="placingFunction(id)"></th>
+                        <th id="95demo" onclick="placingFunction(id)"></th>
+                        <th id="96demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <th id="97demo" onclick="placingFunction(id)"></th>
+                        <th id="98demo" onclick="placingFunction(id)"></th>
+                        <th id="99demo" onclick="placingFunction(id)"></th>
+                        <th id="100demo" onclick="placingFunction(id)"></th>
+                        <th id="101demo" onclick="placingFunction(id)"></th>
+                        <th id="102demo" onclick="placingFunction(id)"></th>
+                        <th id="103demo" onclick="placingFunction(id)"></th>
+                        <th id="104demo" onclick="placingFunction(id)"></th>
+                        <th id="105demo" onclick="placingFunction(id)"></th>
+                        <th id="106demo" onclick="placingFunction(id)"></th>
+                        <th id="107demo" onclick="placingFunction(id)"></th>
+                        <th id="108demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>J</td>
+                        <th id="109demo" onclick="placingFunction(id)"></th>
+                        <th id="110demo" onclick="placingFunction(id)"></th>
+                        <th id="111demo" onclick="placingFunction(id)"></th>
+                        <th id="112demo" onclick="placingFunction(id)"></th>
+                        <th id="113demo" onclick="placingFunction(id)"></th>
+                        <th id="114demo" onclick="placingFunction(id)"></th>
+                        <th id="115demo" onclick="placingFunction(id)"></th>
+                        <th id="116demo" onclick="placingFunction(id)"></th>
+                        <th id="117demo" onclick="placingFunction(id)"></th>
+                        <th id="118demo" onclick="placingFunction(id)"></th>
+                        <th id="119demo" onclick="placingFunction(id)"></th>
+                        <th id="120demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>K</td>
+                        <th id="121demo" onclick="placingFunction(id)"></th>
+                        <th id="122demo" onclick="placingFunction(id)"></th>
+                        <th id="123demo" onclick="placingFunction(id)"></th>
+                        <th id="124demo" onclick="placingFunction(id)"></th>
+                        <th id="125demo" onclick="placingFunction(id)"></th>
+                        <th id="126demo" onclick="placingFunction(id)"></th>
+                        <th id="127demo" onclick="placingFunction(id)"></th>
+                        <th id="128demo" onclick="placingFunction(id)"></th>
+                        <th id="129demo" onclick="placingFunction(id)"></th>
+                        <th id="130demo" onclick="placingFunction(id)"></th>
+                        <th id="131demo" onclick="placingFunction(id)"></th>
+                        <th id="132demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <th id="133demo" onclick="placingFunction(id)"></th>
+                        <th id="134demo" onclick="placingFunction(id)"></th>
+                        <th id="135demo" onclick="placingFunction(id)"></th>
+                        <th id="136demo" onclick="placingFunction(id)"></th>
+                        <th id="137demo" onclick="placingFunction(id)"></th>
+                        <th id="138demo" onclick="placingFunction(id)"></th>
+                        <th id="139demo" onclick="placingFunction(id)"></th>
+                        <th id="140demo" onclick="placingFunction(id)"></th>
+                        <th id="141demo" onclick="placingFunction(id)"></th>
+                        <th id="142demo" onclick="placingFunction(id)"></th>
+                        <th id="143demo" onclick="placingFunction(id)"></th>
+                        <th id="144demo" onclick="placingFunction(id)"></th>
+                    </tr>
+                </table>
+            </article>
+
+
+        </section>
+    </body>
+</html>
