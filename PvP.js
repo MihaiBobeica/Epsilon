@@ -54,7 +54,7 @@
             
             if(sumRowMyArray == 0 && inBoundRow)
             {
-                rewinder(altaVariabila);
+          
                 clickNumber++;
                 document.getElementById(altaVariabila+"demo").style.background = "#800060";
                 document.getElementById(altaVariabila+1+"demo").style.background = "#800060";
@@ -73,7 +73,7 @@
         {
             if(sumColMyArray == 0 && inBoundCol)
             {
-                rewinder(altaVariabila);
+          
                 clickNumber++;
                 document.getElementById(altaVariabila + "demo").style.background = "green";
                 document.getElementById(altaVariabila + 12 + "demo").style.background = "green";
