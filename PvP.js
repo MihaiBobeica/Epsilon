@@ -9,11 +9,11 @@
     }
     for( i = 0 ; i < 150 ; i++)
     {
-        myArray[i] =0;
+        myArray[i] = stateOfElement.free;
     }
         
 
-    timeSquareConstructor = 50;
+    timeSquareConstructor = 100;
     constructed = false;
     function randomSquaresConstructor()
     {
@@ -54,12 +54,12 @@
             
             if(sumRowMyArray == 0 && inBoundRow)
             {
-          
+                rewinder(altaVariabila);
                 clickNumber++;
-                document.getElementById(altaVariabila+"demo").style.background = "#800060";
-                document.getElementById(altaVariabila+1+"demo").style.background = "#800060";
-                document.getElementById(altaVariabila+2+"demo").style.background = "#800060";
-                document.getElementById(altaVariabila+3+"demo").style.background = "#800060";
+                document.getElementById(altaVariabila + "demo").style.background = "#800060";
+                document.getElementById(altaVariabila + 1 + "demo").style.background = "#800060";
+                document.getElementById(altaVariabila + 2 + "demo").style.background = "#800060";
+                document.getElementById(altaVariabila + 3 + "demo").style.background = "#800060";
                 myArray[altaVariabila] = stateOfElement.occupied;
                 myArray[altaVariabila + 1] = stateOfElement.occupied;
                 myArray[altaVariabila + 2] = stateOfElement.occupied;
@@ -73,7 +73,7 @@
         {
             if(sumColMyArray == 0 && inBoundCol)
             {
-          
+                rewinder(altaVariabila);
                 clickNumber++;
                 document.getElementById(altaVariabila + "demo").style.background = "green";
                 document.getElementById(altaVariabila + 12 + "demo").style.background = "green";
@@ -96,11 +96,13 @@
         if(clickNumber % 2 == 1)
         {
             document.getElementById( clickNumber + "move").style.color = "purple";
+            document.getElementById( clickNumber + "move").style.backgroundColor = "#f8f8ff";
             document.getElementById( clickNumber + "move").innerHTML = clickNumber + ") " + letter[ Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)] + "<->" + letter[Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)+3];
         }
         else
         {
             document.getElementById( clickNumber + "move").style.color = "green";
+            document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
             document.getElementById( clickNumber + "move").innerHTML = clickNumber + ") " +  letter[ Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)] + "<->" + letter[Math.floor((altaVariabila -1 )/ 12)+3] + number[ Math.floor((altaVariabila - 1)%12)];
         }
         
@@ -166,8 +168,8 @@
     {
         if(clickNumber % 2 == 1)
         {
-            document.getElementById("purpleTurn").style.display = "block";
             document.getElementById("greenTurn").style.display = "none";
+            document.getElementById("purpleTurn").style.display = "block";
         }
         else
         {
@@ -217,4 +219,11 @@
             }
         }
         alert("Purple player won");
+    }
+
+
+    function darkMode()
+    {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
     }
