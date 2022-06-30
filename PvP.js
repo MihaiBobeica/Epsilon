@@ -1,5 +1,6 @@
     myArray = new Array(150);
-    
+    movesDone = new Array(150);
+    endOfGame = false;
     clickNumber = 1;
     const stateOfElement = {
         free: 0,
@@ -20,11 +21,11 @@
         if(!constructed)
         {
             var randomSquare1 = Math.floor(Math.random() * 145);
-            myArray[randomSquare1] = stateOfElement.occupied;
+            myArray[randomSquare1] = stateOfElement.blacked;
             document.getElementById(randomSquare1+"demo").style.background= "black";
 
             randomSquare1 = Math.floor(Math.random() * 145);
-            myArray[randomSquare1] = stateOfElement.occupied;
+            myArray[randomSquare1] = stateOfElement.blacked;
             document.getElementById(randomSquare1+"demo").style.background= "black";
 
             constructed = true;
@@ -52,9 +53,10 @@
         if(clickNumber % 2 == 1)
         {
             
-            if(sumRowMyArray == 0 && inBoundRow)
+            if(sumRowMyArray == 0 && inBoundRow && !endOfGame)
             {
                 rewinder(altaVariabila);
+                movesDone[clickNumber] = altaVariabila;
                 clickNumber++;
                 document.getElementById(altaVariabila + "demo").style.background = "#800060";
                 document.getElementById(altaVariabila + 1 + "demo").style.background = "#800060";
@@ -64,16 +66,16 @@
                 myArray[altaVariabila + 1] = stateOfElement.occupied;
                 myArray[altaVariabila + 2] = stateOfElement.occupied;
                 myArray[altaVariabila + 3] = stateOfElement.occupied;
-                
-               greenLose();
+                greenLose();
             }
             
         }
         else
         {
-            if(sumColMyArray == 0 && inBoundCol)
+            if(sumColMyArray == 0 && inBoundCol && !endOfGame)
             {
                 rewinder(altaVariabila);
+                movesDone[clickNumber] = altaVariabila;
                 clickNumber++;
                 document.getElementById(altaVariabila + "demo").style.background = "green";
                 document.getElementById(altaVariabila + 12 + "demo").style.background = "green";
@@ -111,8 +113,7 @@
     
     function hoverFunction()
     {
-        
-
+        displayTurn();
         hoverArray = new Array(150);
         for(var i = 1 ; i < 145 ; i++)
         {
@@ -177,48 +178,41 @@
             document.getElementById("greenTurn").style.display = "block";
         }
     }
-    setInterval(displayTurn,30);
 
     function purpleLose()
     {
-        for(var i = 1 ; i < 145 ; i++)
+        var isAvailableI = false;
+        for(var i = 1 ; i < 145 && isAvailableI == false; i++)
         {
-            var isAvailableI = true;
-            for(var j = 0 ; j < 4 &&  i + 3 <= 12; j++)
+            var sumRowMyArray = myArray[i] + myArray[i + 1] + myArray[i + 2] + myArray[i + 3];
+
+            if(i % 12 <= 9 && sumRowMyArray == 0)
             {
-                if(myArray[i + j] != stateOfElement.free)
-                {
-                    isAvailableI = false;
-                    break;
-                }
-            }
-            if(isAvailableI == true)
-            {
-                return ;
+                isAvailableI = true;
             }
         }
-        alert("Green player won");
+        if(isAvailableI == false)
+        {
+            alert("Green player won");
+        }
     }
 
     function greenLose()
     {
-        for(var i = 1 ; i < 145 ; i++)
+        var isAvailableI = false;
+        for(var i = 1 ; i <= 108 && isAvailableI == false; i++)
         {
-            var isAvailableI = true;
-            for(var j = 0 ; j < 4 && i + 12 * 3 <= 12; j++)
+            var sumColMyArray = myArray[i] + myArray[i + 12] + myArray[i + 24] + myArray[i + 36];
+            
+            if(sumColMyArray == 0)
             {
-                if(myArray[i + 12 * j] != stateOfElement.free)
-                {
-                    isAvailableI = false;
-                    break;
-                }
-            }
-            if(isAvailableI == true)
-            {
-                return ;
+                isAvailableI = true;
             }
         }
-        alert("Purple player won");
+        if(isAvailableI == false)
+        {
+            alert("purple player won");
+        }
     }
 
 
@@ -226,4 +220,54 @@
     {
         var element = document.body;
         element.classList.toggle("dark-mode");
+    }
+
+    
+    function forfeit()
+    {
+        if(clickNumber % 2 == 1)
+        {
+            alert("Green player won");
+        }
+        else
+        {
+            alert("Purple player won");
+        }
+        endOfGame = true;
+    }
+
+    function undo()
+    {
+        if(clickNumber > 1)
+        {
+            clickNumber -- ;
+            deleteElement = movesDone[clickNumber];
+            if( clickNumber % 2 == 1)
+            {
+                // deleting on table
+                document.getElementById(deleteElement + "demo").style.background = "#C0C0C0";
+                document.getElementById(deleteElement + 1 + "demo").style.background = "#C0C0C0";
+                document.getElementById(deleteElement + 2 + "demo").style.background = "#C0C0C0";
+                document.getElementById(deleteElement + 3 + "demo").style.background = "#C0C0C0";
+                myArray[deleteElement] = stateOfElement.free;
+                myArray[deleteElement + 1] = stateOfElement.free;
+                myArray[deleteElement + 2] = stateOfElement.free;
+                myArray[deleteElement + 3] = stateOfElement.free;
+            }
+            else
+            {
+                // deleting on table
+                document.getElementById(deleteElement + "demo").style.background = "C0C0C0";
+                document.getElementById(deleteElement + 12 + "demo").style.background = "C0C0C0";
+                document.getElementById(deleteElement + 24 + "demo").style.background = "C0C0C0";
+                document.getElementById(deleteElement + 36 + "demo").style.background = "C0C0C0";     
+                myArray[deleteElement] = stateOfElement.free;
+                myArray[deleteElement + 12] = stateOfElement.free;
+                myArray[deleteElement + 24] = stateOfElement.free;
+                myArray[deleteElement + 36] = stateOfElement.free;
+            }
+            // deleting on rewind tab
+            document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
+            document.getElementById( clickNumber + "move").innerHTML = "";
+        }
     }
