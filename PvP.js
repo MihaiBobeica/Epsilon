@@ -16,38 +16,76 @@
 
     timeSquareConstructor = 100;
     constructed = false;
+    function squarePlacer()
+    {
+        var randomSquare1 = Math.floor(Math.random() * 145);
+        myArray[randomSquare1] = stateOfElement.blacked;
+        document.getElementById(randomSquare1+"demo").style.background= "black";
+
+        randomSquare1 = Math.floor(Math.random() * 145);
+        myArray[randomSquare1] = stateOfElement.blacked;
+        document.getElementById(randomSquare1+"demo").style.background= "black";
+
+        constructed = true;
+        timeSquareConstructor = 100000;
+        for(var i = 1 ; i < 145 ; i++)
+        {
+            if(myArray[i]!=0)
+            {
+                document.getElementById(i+"demo").style.background= "black";
+            }
+        }
+    }
     function randomSquaresConstructor()
     {
         if(!constructed)
         {
-            var randomSquare1 = Math.floor(Math.random() * 145);
-            myArray[randomSquare1] = stateOfElement.blacked;
-            document.getElementById(randomSquare1+"demo").style.background= "black";
-
-            randomSquare1 = Math.floor(Math.random() * 145);
-            myArray[randomSquare1] = stateOfElement.blacked;
-            document.getElementById(randomSquare1+"demo").style.background= "black";
-
-            constructed = true;
-            timeSquareConstructor = 100000;
-            for(var i = 1 ; i < 145 ; i++)
-            {
-                if(myArray[i]!=0)
-                {
-                    document.getElementById(i+"demo").style.background= "black";
-                }
-            }
+            squarePlacer();
         }
     }
     setInterval(randomSquaresConstructor,timeSquareConstructor);  
 
     
-    
+
+
+
+
+
+
+    function emptyBoard()
+    {
+        for( var i = 1 ; i < 145 ; i++)
+        {
+            myArray[i] = stateOfElement.free;
+            document.getElementById(i + "demo").style.background = "#C0C0C0";
+        }
+        
+    }
+    function emptyRewinder()
+    {
+        for( var i = 1 ; i <= 36; i ++)
+        {
+            document.getElementById( i + "move").style.backgroundColor = "#E8E8E8";
+            document.getElementById( i + "move").innerHTML = "";
+        }
+    }
+
+    function newGame()
+    {
+        emptyBoard();
+        emptyRewinder();
+        squarePlacer();
+        clickNumber = 1;
+        
+    }
+
+
+
     function placingFunction( nume )
     {
         var altaVariabila = parseInt( nume );
-        var sumRowMyArray = myArray[altaVariabila]+myArray[altaVariabila+1]+myArray[altaVariabila+2]+myArray[altaVariabila+3];
-        var sumColMyArray = myArray[altaVariabila]+myArray[altaVariabila+12]+myArray[altaVariabila+24]+myArray[altaVariabila+36];
+        var sumRowMyArray = myArray[altaVariabila] + myArray[altaVariabila + 1] + myArray[altaVariabila + 2] + myArray[altaVariabila + 3];
+        var sumColMyArray = myArray[altaVariabila] + myArray[altaVariabila + 12] + myArray[altaVariabila + 24] + myArray[altaVariabila + 36];
         var inBoundRow = (altaVariabila - 1) % 12 < 9;
         var inBoundCol = (altaVariabila - 1) / 12 <9;
         if(clickNumber % 2 == 1)
@@ -110,14 +148,13 @@
         
     }
 
-    
     function hoverFunction()
     {
         displayTurn();
         hoverArray = new Array(150);
         for(var i = 1 ; i < 145 ; i++)
         {
-            var sumRowMyArray = myArray[i] + myArray[i + 1] + myArray[i + 2] + myArray[i + 3];
+            var sumRowMyArray = myArray[i] + myArray[i + 1] + myArray[i + 2] + myArray [i + 3];
             var sumColMyArray = myArray[i] + myArray[i + 12] + myArray[i + 24] + myArray[i + 36];
             if($(document.getElementById(i + "demo")).is(":hover") == 0)
                 hoverArray [i]==0;
