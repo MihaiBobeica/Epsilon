@@ -2,6 +2,11 @@
     movesDone = new Array(150);
     endOfGame = false;
     clickNumber = 1;
+
+    nigthMode = false;
+
+
+
     const stateOfElement = {
         free: 0,
         occupied: 1,
@@ -65,8 +70,16 @@
     {
         for( var i = 1 ; i <= 36; i ++)
         {
-            document.getElementById( i + "move").style.backgroundColor = "#E8E8E8";
+            
             document.getElementById( i + "move").innerHTML = "";
+            if( nigthMode == false)
+            {
+                document.getElementById( i + "move").style.backgroundColor = "#E8E8E8";
+            }
+            else
+            {
+                document.getElementById( i + "move").style.backgroundColor = "#696969";
+            }
         }
     }
 
@@ -136,13 +149,27 @@
         if(clickNumber % 2 == 1)
         {
             document.getElementById( clickNumber + "move").style.color = "purple";
-            document.getElementById( clickNumber + "move").style.backgroundColor = "#f8f8ff";
+            if( nigthMode == false)
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#f8f8ff";
+            }
+            else
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#696969";
+            }
             document.getElementById( clickNumber + "move").innerHTML = clickNumber + ") " + letter[ Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)] + "<->" + letter[Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)+3];
         }
         else
         {
             document.getElementById( clickNumber + "move").style.color = "green";
-            document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
+            if(nigthMode == false)
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
+            }
+            else
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#808080";
+            }
             document.getElementById( clickNumber + "move").innerHTML = clickNumber + ") " +  letter[ Math.floor((altaVariabila -1 )/ 12)] + number[ Math.floor((altaVariabila - 1)%12)] + "<->" + letter[Math.floor((altaVariabila -1 )/ 12)+3] + number[ Math.floor((altaVariabila - 1)%12)];
         }
         
@@ -182,23 +209,32 @@
             {   
                 if(clickNumber % 2 == 1)
                 {
-                    document.getElementById(i+"demo").style.background = "#803080";
+                    document.getElementById(i + "demo").style.background = "#803080";
                 }
                 else
                 {
-                    document.getElementById(i+"demo").style.background = "#808030";
+                    document.getElementById(i + "demo").style.background = "#808030";
                 }
                 
             }
             else
             {
                 if(myArray[i] == stateOfElement.free)
-                    document.getElementById(i+"demo").style.background = "#C0C0C0";
+                {
+                    if(nigthMode == false)
+                    {
+                        document.getElementById(i + "demo").style.background = "#C0C0C0";
+                    }
+                    else
+                    {
+                        document.getElementById(i + "demo").style.background = "#696969";
+                    }
+                }
             }
 
         }
     }
-    setInterval(hoverFunction,30); 
+    setInterval(hoverFunction,45); 
 
     
     
@@ -253,10 +289,65 @@
     }
 
 
-    function darkMode()
+    function ToggleUI()
     {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
+        document.body.classList.toggle("blackBackground");
+
+        for(var i =  1; i <= 144 ; i++)
+        {
+            document.getElementById(i + "demo").classList.toggle("blackBackground");
+        }
+        for(var i = 1; i <= 25; i++)
+        {
+            document.getElementById(i+"letter").classList.toggle("blackBackground");
+        }
+
+        document.getElementById("forfeitButton").classList.toggle("gray1Background");
+        document.getElementById("undoButton").classList.toggle("gray1Background");
+        document.getElementById("newGameButton").classList.toggle("gray1Background");
+        document.getElementById("toggleUIButton").classList.toggle("gray1Background");
+
+        document.getElementById("movesDoneID").classList.toggle("gray2Background");
+        document.getElementById("outerID").classList.toggle("gray2Background");
+        
+        for( var i = 1; i < clickNumber; i++)
+        {
+            if( nigthMode == false)
+            {
+                if(i % 2 == 1)
+                {
+                    document.getElementById( i + "move").style.backgroundColor = "#696969";
+                }
+                else
+                {
+                    document.getElementById( i + "move").style.backgroundColor = "#808080";
+                }
+            }
+            else
+            {
+                if(i % 2 == 1)
+                {
+                    document.getElementById( i + "move").style.backgroundColor = "#f8f8ff";
+                }
+                else
+                {
+                    document.getElementById( i + "move").style.backgroundColor = "#E8E8E8";
+                }
+            }
+        }
+        for( var i = clickNumber ; i <= 36; i ++)
+        {
+            if( nigthMode == true)
+            {
+                document.getElementById( i + "move").style.backgroundColor = "#E8E8E8";
+            }
+            else
+            {
+                document.getElementById( i + "move").style.backgroundColor = "#696969";
+            }
+        }
+        nigthMode = (nigthMode + 1 ) % 2;
+
     }
 
     
