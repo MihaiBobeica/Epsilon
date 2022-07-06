@@ -395,7 +395,14 @@
                 myArray[deleteElement + 36] = stateOfElement.free;
             }
             // deleting on rewind tab
-            document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
+            if(nigthMode == false)
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#E8E8E8";
+            }
+            else
+            {
+                document.getElementById( clickNumber + "move").style.backgroundColor = "#696969";
+            }
             document.getElementById( clickNumber + "move").innerHTML = "";
         }
     }
