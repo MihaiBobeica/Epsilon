@@ -38,10 +38,6 @@ h{
   border-color: red;
   border-width: 0px;
   border-style: solid;
-
-
-
-  background-color: #C0C0C0;
   text-align: center;
   position: relative;
   height: 100%;
@@ -51,7 +47,12 @@ h{
   font-family: ui-monospace;
 }
 
-
+.box{
+  background-color: #C0C0C0;
+}
+.boxLetter{
+  background-color: white;
+}
 
 .leftSide{
   display: grid;
@@ -180,11 +181,26 @@ button:active {
 }
 
 
-.dark-mode {
+.blackBackground {
   background-color: #1B1212;
   color: white;
-  
 }
+.gray1Background{
+  background-color: #787878;
+  color: white;
+}
+
+.gray2Background{
+  background-color: #696969;
+  /*#2a2a2a*/
+  color: white;
+}
+.gray2Background{
+  /*#333333*/
+  color: white;
+}
+
+
 
 
 @media only screen and (max-width: 1920px) {
