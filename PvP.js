@@ -19,6 +19,7 @@ else
 {
     turn = green;
 }
+firstTurn = turn;
 //init board with free
 for(let i = 0 ; i < 150 ; i++)
 {
@@ -112,6 +113,7 @@ function newGame()
     {
         turn = green;
     }
+    firstTurn = turn;
     
 }
 
@@ -133,6 +135,13 @@ function placingFunction( nume )
                     board[i + 1 - 12] = purpled;
                     board[i + 2 - 12] = purpled;
                     board[i + 3 - 12] = purpled;
+                    clickNumber++;
+                    movesDone[clickNumber] = i;
+                    greenLose();
+                    if(!endOfGame)
+                    {
+                        turn = green;
+                    }
                 }
             }
             if(i % 12 <= 9 && i % 12 != 0)
@@ -143,6 +152,13 @@ function placingFunction( nume )
                     board[i + 1] = purpled;
                     board[i + 2] = purpled;
                     board[i + 3] = purpled;
+                    clickNumber++;
+                    movesDone[clickNumber] = i;
+                    greenLose();
+                    if(!endOfGame)
+                    {
+                        turn = green;
+                    }
                 }
             }
             if(i % 12 == 10)
@@ -153,6 +169,13 @@ function placingFunction( nume )
                     board[i + 1] = purpled;
                     board[i + 2] = purpled;
                     board[i + 3 - 12] = purpled;
+                    clickNumber++;
+                    movesDone[clickNumber] = i;
+                    greenLose();
+                    if(!endOfGame)
+                    {
+                        turn = green;
+                    }
                 }
             }
             if(i % 12 == 11)
@@ -163,15 +186,16 @@ function placingFunction( nume )
                     board[i + 1] = purpled;
                     board[i + 2 - 12] = purpled;
                     board[i + 3 - 12] = purpled;
+                    clickNumber++;
+                    movesDone[clickNumber] = i;
+                    greenLose();
+                    if(!endOfGame)
+                    {
+                        turn = green;
+                    }
                 }
             }
-            clickNumber++;
-            movesDone[clickNumber] = i;
-            greenLose();
-            if(!endOfGame)
-            {
-                turn = green;
-            }
+            
             return ;
         }
     }
