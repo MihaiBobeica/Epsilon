@@ -310,7 +310,7 @@ function displayBoard()
         }
         if(board[i] == purpled)
         {
-            document.getElementById(i + "board").style.background = "#800060";
+            document.getElementById(i + "board").style.background = "#800060"; // nice purple
         }
         if(board[i] == greened)
         {
