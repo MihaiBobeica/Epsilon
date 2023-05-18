@@ -110,7 +110,7 @@ function doMove(k)
     }
     if(turn == green)
     {
-        if(board[k] == free && board[(k + 12) % 144] == free &&  board[(k + 12) % 144] == free && board[(k + 36) % 144]==free)
+        if(board[k] == free && board[(k + 12) % 144] == free && board[(k + 24) % 144] == free && board[(k + 36) % 144] == free)
         {
             board[k] = greened;
             board[(k + 12) % 144] = greened;
@@ -310,7 +310,7 @@ function displayBoard()
         }
         if(board[i] == purpled)
         {
-            document.getElementById(i + "board").style.background = "#800060"; // nice purple
+            document.getElementById(i + "board").style.background = "#800060";
         }
         if(board[i] == greened)
         {
